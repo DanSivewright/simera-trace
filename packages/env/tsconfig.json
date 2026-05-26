@@ -1,0 +1,3 @@
+{
+  "extends": "@simera-trace/config/tsconfig.base.json"
+}

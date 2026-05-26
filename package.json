@@ -1,0 +1,33 @@
+{
+  "name": "simera-trace",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @simera-trace/db db:push",
+    "db:studio": "turbo -F @simera-trace/db db:studio",
+    "db:generate": "turbo -F @simera-trace/db db:generate",
+    "db:migrate": "turbo -F @simera-trace/db db:migrate",
+    "check": "biome check --write ."
+  },
+  "dependencies": {
+    "@simera-trace/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@simera-trace/config": "workspace:*",
+    "@types/node": "^22.13.14",
+    "turbo": "^2.8.12",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.23.0"
+}

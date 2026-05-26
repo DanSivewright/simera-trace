@@ -1,0 +1,24 @@
+{
+  "name": "@simera-trace/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@simera-trace/db": "workspace:*",
+    "@simera-trace/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@simera-trace/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

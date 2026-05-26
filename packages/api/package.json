@@ -1,0 +1,29 @@
+{
+  "name": "@simera-trace/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@orpc/client": "catalog:",
+    "@orpc/openapi": "catalog:",
+    "@orpc/server": "catalog:",
+    "@orpc/zod": "catalog:",
+    "@simera-trace/auth": "workspace:*",
+    "@simera-trace/db": "workspace:*",
+    "@simera-trace/env": "workspace:*",
+    "dotenv": "catalog:",
+    "next": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@simera-trace/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
