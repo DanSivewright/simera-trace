@@ -1,0 +1,19 @@
+{
+  "name": "@simera-trace/assessment-model",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "check-defaults": "tsx ./scripts/check-defaults.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@simera-trace/config": "workspace:*",
+    "tsx": "^4.20.6",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@simera-trace/email",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.5.7",
+    "@react-email/render": "^1.4.0",
+    "@simera-trace/assessment-model": "workspace:*",
+    "@simera-trace/env": "workspace:*",
+    "pdf-lib": "^1.17.1",
+    "react": "catalog:",
+    "resend": "^6.9.3"
+  },
+  "devDependencies": {
+    "@simera-trace/config": "workspace:*",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -13,6 +13,7 @@
     "@orpc/server": "catalog:",
     "@orpc/tanstack-query": "^1.13.14",
     "@orpc/zod": "catalog:",
+    "@simera-trace/assessment-model": "workspace:*",
     "@simera-trace/api": "workspace:*",
     "@simera-trace/auth": "workspace:*",
     "@simera-trace/env": "workspace:*",

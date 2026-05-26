@@ -1,6 +1,6 @@
 "use client";
 
-// import { Toaster } from "@simera-trace/ui/components/sonner";
+import { Toaster } from "@simera-trace/ui/components/toast";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
@@ -20,7 +20,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         {children}
         <ReactQueryDevtools />
       </QueryClientProvider>
-      {/* <Toaster richColors /> */}
+      <Toaster />
     </ThemeProvider>
   );
 }

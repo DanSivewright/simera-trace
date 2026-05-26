@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assessment Report Preview - Junior Pass</title>
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --text: #171717;
+      --muted: #666666;
+      --line: #e5e5e5;
+      --ok: #0b8d54;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; display: grid; gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .kpis { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .kpi-title { font-size: 12px; color: var(--muted); margin: 0 0 6px; }
+    .kpi-value { margin: 0; font-size: 24px; font-weight: 700; }
+    .ok { color: var(--ok); }
+    .three { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 16px; margin-bottom: 8px; }
+    .muted { color: var(--muted); }
+    .list { display: grid; gap: 8px; }
+  </style>
+</head>
+<body>
+  <!--
+    Assumptions (Junior pass):
+    1) Use Simera Trace brand language only (graphene lubricant terminology).
+    2) Mirror client information architecture: financial cascade + scenarios + mechanisms + validation.
+    3) Keep this as a static design guide; production component is interactive in React.
+  -->
+  <main class="wrap">
+    <section class="card">
+      <h1>Your indicative savings estimate</h1>
+      <p class="muted">Executive financial view plus operations and validation insights.</p>
+    </section>
+
+    <section class="kpis">
+      <article class="card"><p class="kpi-title">Total annual haulage cost</p><p class="kpi-value">R1.32B</p></article>
+      <article class="card"><p class="kpi-title">5% cost/t-km improvement</p><p class="kpi-value ok">R66M</p></article>
+      <article class="card"><p class="kpi-title">Revenue equivalent</p><p class="kpi-value">R220M</p></article>
+      <article class="card"><p class="kpi-title">Enterprise value created</p><p class="kpi-value ok">R396M-R528M</p></article>
+    </section>
+
+    <section class="card">
+      <h2>Financial cascade</h2>
+      <div class="list muted">
+        <p>Haulage cost (before): R1.32B</p>
+        <p>Cost/t-km improvement: -R66M</p>
+        <p>Revenue equivalent at 30% margin: R220M</p>
+        <p>Enterprise value at 6-8x EBITDA: R396M-R528M</p>
+      </div>
+    </section>
+
+    <section class="three">
+      <article class="card"><h3>Conservative case</h3><p class="kpi-value">-2% to -3%</p><p class="muted">Fuel-only effect.</p></article>
+      <article class="card"><h3>Base case</h3><p class="kpi-value">-5% to -7%</p><p class="muted">Fuel plus uptime.</p></article>
+      <article class="card"><h3>Full case</h3><p class="kpi-value">-8% to -12%</p><p class="muted">Fuel, uptime, and maintenance deferral.</p></article>
+    </section>
+
+    <section class="card">
+      <h2>Mechanism highlights</h2>
+      <div class="list muted">
+        <p><strong>Boundary lubrication:</strong> lower friction where oil film collapses (hours).</p>
+        <p><strong>Sealing recovery:</strong> reduced blow-by supports better pressure conversion (hours).</p>
+        <p><strong>Wear trend reduction:</strong> slower Fe/Cr/Al growth in used-oil analysis (2-4 weeks).</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Validation protocol</h2>
+      <div class="list muted">
+        <p><strong>Phase 1 (Week 1):</strong> blow-by baseline and first treatment.</p>
+        <p><strong>Phase 2 (Weeks 1-4):</strong> used-oil analysis trend review.</p>
+        <p><strong>Phase 3 (Weeks 2-6):</strong> paired truck telematics normalization.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
