@@ -209,7 +209,7 @@ export default function Home() {
               </Button.Root>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 text-left">
                 <div className="rounded-full bg-primary-base p-0.5">
                   <RiCheckLine className="size-3 text-static-white" />
                 </div>
@@ -217,7 +217,7 @@ export default function Home() {
                   Less diesel burned across your fleet
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 text-left">
                 <div className="rounded-full bg-primary-base p-0.5">
                   <RiCheckLine className="size-3 text-static-white" />
                 </div>
@@ -225,7 +225,7 @@ export default function Home() {
                   Less wear on haul trucks, loaders, and gensets
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 text-left">
                 <div className="rounded-full bg-primary-base p-0.5">
                   <RiCheckLine className="size-3 text-static-white" />
                 </div>
@@ -248,11 +248,11 @@ export default function Home() {
               {audienceTabs.map((tab) => (
                 <SegmentedControl.Trigger
                   key={tab.value}
-                  className="flex h-full items-center justify-center rounded-[12px] bg-transparent pr-4 data-[state=active]:[&_svg]:text-primary-base"
+                  className="flex aspect-square h-full items-center justify-center rounded-[12px] bg-transparent md:aspect-auto md:pr-4 data-[state=active]:[&_svg]:text-primary-base"
                   value={tab.value}
                 >
                   <tab.triggerIcon className="size-4 shrink-0" />
-                  {tab.label}
+                  <span className="hidden md:inline">{tab.label}</span>
                 </SegmentedControl.Trigger>
               ))}
             </SegmentedControl.List>
@@ -262,7 +262,7 @@ export default function Home() {
                 className="w-full"
                 value={tab.value}
               >
-                <div className="mx-auto flex w-full max-w-6xl items-start justify-center gap-6">
+                <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-center gap-6 md:flex-row">
                   {tab.cards.map((card) => (
                     <AudienceBenefitCard key={card.title} {...card} />
                   ))}
@@ -735,11 +735,20 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Button.Root variant="primary" asChild>
+              <div className="flex flex-col items-center gap-3 md:flex-row">
+                <Button.Root
+                  variant="primary"
+                  asChild
+                  className="w-full md:w-fit"
+                >
                   <Link href="/assessment">Take assessment</Link>
                 </Button.Root>
-                <Button.Root variant="primary" mode="stroke" asChild>
+                <Button.Root
+                  variant="primary"
+                  mode="stroke"
+                  asChild
+                  className="w-full md:w-fit"
+                >
                   <Link href="/contact">Contact us</Link>
                 </Button.Root>
               </div>
@@ -789,8 +798,8 @@ export default function Home() {
           </p>
         </div>
         <div className="flex w-full flex-col gap-8 md:flex-row">
-          <div className="grid grid-cols-2 gap-6 md:flex md:flex-1 md:flex-col md:items-start">
-            <div className="relative w-full shrink-0 overflow-hidden rounded-20 bg-bg-weak-50 md:aspect-35/43 md:w-full">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:flex lg:flex-1 lg:flex-col lg:items-start">
+            <div className="relative w-full shrink-0 overflow-hidden rounded-20 bg-bg-weak-50 lg:aspect-35/43 lg:w-full">
               <Image
                 src="/finger-print.jpg"
                 alt="Question"

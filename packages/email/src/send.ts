@@ -7,7 +7,7 @@ import type { EmailDeliveryStatus } from "./types";
 
 const DEFAULT_DEV_EMAIL = "dan@wixels.com";
 const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
-const from = env.EMAIL_FROM ?? "onboarding@resend.dev";
+const from = env.EMAIL_FROM ?? "info@simeratrace.com";
 
 export type SendEmailInput = {
   to: string | string[];
@@ -31,7 +31,9 @@ function enforceDevRecipients(recipients: string[]) {
   }
 
   const devAllowed = env.INBOUND_NOTIFICATION_EMAIL ?? DEFAULT_DEV_EMAIL;
-  return recipients.filter((email) => email.toLowerCase() === devAllowed.toLowerCase());
+  return recipients.filter(
+    (email) => email.toLowerCase() === devAllowed.toLowerCase(),
+  );
 }
 
 export async function sendEmail({

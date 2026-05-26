@@ -19,7 +19,7 @@ function getNotificationRecipient() {
 }
 
 function getBaseUrl() {
-  return env.APP_BASE_URL ?? env.BETTER_AUTH_URL;
+  return env.BETTER_AUTH_URL;
 }
 
 export async function sendContactNotificationToTeam(
@@ -32,7 +32,9 @@ export async function sendContactNotificationToTeam(
   });
 }
 
-export async function sendContactThankYouToUser(payload: ContactSubmissionPayload) {
+export async function sendContactThankYouToUser(
+  payload: ContactSubmissionPayload,
+) {
   return sendEmail({
     to: payload.email,
     subject: "Thanks for contacting Simera Trace",
