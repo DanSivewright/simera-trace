@@ -172,8 +172,13 @@ export default function Home() {
       <div className="md:p-4">
         <div className="flex w-full flex-col gap-8 px-6 py-8 md:gap-16">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
-            <div className="flex items-center justify-center gap-2 rounded-full bg-bg-weak-50 px-1.5 py-1 pr-2">
-              <Badge.Root variant="light" color="purple" size="small">
+            <div className="flex flex-wrap items-center justify-center gap-2 rounded-full bg-bg-weak-50 px-1.5 py-1 pr-2">
+              <Badge.Root
+                className="hidden md:flex"
+                variant="light"
+                color="purple"
+                size="small"
+              >
                 First in Africa
               </Badge.Root>
               <p className="text-label-sm text-text-sub-600">

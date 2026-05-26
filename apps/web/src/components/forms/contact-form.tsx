@@ -1,28 +1,30 @@
 "use client";
 
-import { useForm } from "@tanstack/react-form";
 import * as Button from "@simera-trace/ui/components/button";
 import * as Input from "@simera-trace/ui/components/input";
 import * as Select from "@simera-trace/ui/components/select";
 import * as Textarea from "@simera-trace/ui/components/textarea";
 import { toast } from "@simera-trace/ui/components/toast";
+import { useForm } from "@tanstack/react-form";
 import Link from "next/link";
-
-import { client } from "@/utils/orpc";
 import {
+  type ContactSubmissionValues,
   contactSubmissionSchema,
   locationLabels,
   locationOptions,
   roleLabels,
   roleOptions,
-  type ContactSubmissionValues,
 } from "@/lib/forms/schemas";
+import { client } from "@/utils/orpc";
 
 import { FormField, getFirstFieldError } from "./form-field";
 import { SubmitButton } from "./submit-button";
 
 function zodStringFieldValidator(schema: {
-  safeParse: (value: unknown) => { success: boolean; error?: { issues: { message: string }[] } };
+  safeParse: (value: unknown) => {
+    success: boolean;
+    error?: { issues: { message: string }[] };
+  };
 }) {
   return ({ value }: { value: unknown }) => {
     const parsed = schema.safeParse(value);
@@ -47,7 +49,9 @@ export function ContactForm() {
     onSubmit: async ({ value }) => {
       const parsed = contactSubmissionSchema.safeParse(value);
       if (!parsed.success) {
-        toast.error(parsed.error.issues[0]?.message ?? "Please fix form errors");
+        toast.error(
+          parsed.error.issues[0]?.message ?? "Please fix form errors",
+        );
         return;
       }
 
@@ -85,7 +89,11 @@ export function ContactForm() {
     >
       <form.Field
         name="fullName"
-        validators={{ onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.fullName) }}
+        validators={{
+          onBlur: zodStringFieldValidator(
+            contactSubmissionSchema.shape.fullName,
+          ),
+        }}
       >
         {(field) => {
           const error = getFirstFieldError(field.state.meta);
@@ -108,7 +116,9 @@ export function ContactForm() {
 
       <form.Field
         name="email"
-        validators={{ onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.email) }}
+        validators={{
+          onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.email),
+        }}
       >
         {(field) => {
           const error = getFirstFieldError(field.state.meta);
@@ -132,12 +142,19 @@ export function ContactForm() {
 
       <form.Field
         name="phone"
-        validators={{ onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.phone) }}
+        validators={{
+          onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.phone),
+        }}
       >
         {(field) => {
           const error = getFirstFieldError(field.state.meta);
           return (
-            <FormField label="Phone" required error={error} hint="Include country code">
+            <FormField
+              label="Phone"
+              required
+              error={error}
+              hint="Include country code"
+            >
               <Input.Root hasError={Boolean(error)}>
                 <Input.Wrapper>
                   <Input.Input
@@ -156,7 +173,11 @@ export function ContactForm() {
 
       <form.Field
         name="mineName"
-        validators={{ onBlur: zodStringFieldValidator(contactSubmissionSchema.shape.mineName) }}
+        validators={{
+          onBlur: zodStringFieldValidator(
+            contactSubmissionSchema.shape.mineName,
+          ),
+        }}
       >
         {(field) => {
           const error = getFirstFieldError(field.state.meta);
@@ -185,7 +206,9 @@ export function ContactForm() {
               <Select.Root
                 value={field.state.value}
                 onValueChange={(value) =>
-                  field.handleChange(value as ContactSubmissionValues["location"])
+                  field.handleChange(
+                    value as ContactSubmissionValues["location"],
+                  )
                 }
                 hasError={Boolean(error)}
               >
@@ -212,7 +235,9 @@ export function ContactForm() {
               value={field.state.value ?? ""}
               onValueChange={(value) =>
                 field.handleChange(
-                  value ? (value as ContactSubmissionValues["role"]) : undefined,
+                  value
+                    ? (value as ContactSubmissionValues["role"])
+                    : undefined,
                 )
               }
             >
@@ -251,8 +276,10 @@ export function ContactForm() {
           This sends a notification to our team and a thank-you response to your
           email (dev recipient rules apply).
         </p>
-        <Button.Root asChild variant="neutral" mode="ghost">
-          <Link href="/assessment">Prefer numbers first? Take the assessment</Link>
+        <Button.Root asChild variant="neutral" mode="lighter">
+          <Link href="/assessment">
+            Prefer numbers first? Take the assessment
+          </Link>
         </Button.Root>
       </div>
     </form>

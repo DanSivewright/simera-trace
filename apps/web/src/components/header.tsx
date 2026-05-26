@@ -58,10 +58,10 @@ const Header = () => {
             mode="lighter"
             asChild
           >
-            <Link href="/">Request a trial</Link>
+            <Link href="/contact">Request a trial</Link>
           </Button.Root>
           <Button.Root size="small" asChild>
-            <Link href="/">
+            <Link href="/assessment">
               <span className="hidden md:inline">Qualification </span>Assessment
             </Link>
           </Button.Root>

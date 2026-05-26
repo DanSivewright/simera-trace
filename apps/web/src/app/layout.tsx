@@ -28,7 +28,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
         <Providers>
-          <Banner.Root variant="lighter" status="feature">
+          <Banner.Root
+            className="hidden md:flex"
+            variant="lighter"
+            status="feature"
+          >
             <Banner.Content>
               <Banner.Icon as={RiSparklingLine} />
               <p className="truncate text-label-xs">
