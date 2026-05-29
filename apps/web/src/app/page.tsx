@@ -16,6 +16,7 @@ import {
   RiSettings2Line,
   RiShieldLine,
   RiSparklingLine,
+  RiStackLine,
   RiSubwayLine,
   RiTempHotLine,
 } from "@remixicon/react";
@@ -29,6 +30,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type AudienceCard = {
+  buttonText?: string;
   icon: RemixiconComponentType;
   title: string;
   description: string;
@@ -52,22 +54,25 @@ const audienceTabs: AudienceTab[] = [
         icon: RiBarChart2Fill,
         title: "Cut diesel spend",
         description:
-          "Up to 8% fuel reduction in trial conditions—typically 5–8% once validated on your mine.",
+          "Validated 8%-13% fuel savings in light vehicles—expected 3%-5% savings for mining vehicles.",
         path: "/pipe-liquid.jpg",
+        buttonText: "Assess your savings",
       },
       {
         icon: RiPriceTagLine,
         title: "Haulage economics",
         description:
-          "See how lubrication-led efficiency can shift cost per tonne-kilometre—using your fleet and operating inputs.",
+          "Graphene unlocks lubrication efficiency to improve cost per tonne-kilometre.",
         path: "/trucks.jpg",
+        buttonText: "Assess your savings",
       },
       {
         icon: RiSparklingLine,
-        title: "Numbers before commitment",
+        title: "Impact on company value",
         description:
-          "The free assessment models indicative fuel and financial impact—then book the on-site trial for validation.",
+          "Graphene based savings directly increase net profit and company value.",
         path: "/computer.jpg",
+        buttonText: "See the impact",
       },
     ],
   },
@@ -134,6 +139,7 @@ function AudienceBenefitCard({
   title,
   description,
   path,
+  buttonText,
 }: AudienceCard) {
   return (
     <div className="flex flex-1 shrink-0 flex-col gap-9 rounded-4xl bg-bg-white-0 px-4 pt-9 pb-4 shadow-complex-6 shadow-gray-shadow">
@@ -153,7 +159,7 @@ function AudienceBenefitCard({
             asChild
           >
             <Link href="/assessment">
-              Take assessment
+              {buttonText ?? "Assess your savings"}
               <LinkButton.Icon as={RiArrowRightUpLongLine} />
             </Link>
           </LinkButton.Root>
@@ -172,27 +178,18 @@ export default function Home() {
       <div className="md:p-4">
         <div className="flex w-full flex-col gap-8 px-6 py-8 md:gap-16">
           <div className="flex flex-col items-center justify-center gap-6 text-center">
-            <div className="flex flex-wrap items-center justify-center gap-2 rounded-full bg-bg-weak-50 px-1.5 py-1 pr-2">
-              <Badge.Root
-                className="hidden md:flex"
-                variant="light"
-                color="purple"
-                size="small"
-              >
-                First in Africa
-              </Badge.Root>
+            <div className="flex flex-wrap items-center justify-center gap-2 rounded-full bg-bg-weak-50 px-3 py-1">
               <p className="text-label-sm text-text-sub-600">
-                Graphene experts for mining
+                Pioneering the benefits of graphene in Africa
               </p>
-              <RiArrowRightUpLongLine className="size-4 text-text-sub-600" />
             </div>
-            <h1 className="text-title-h1">
-              Cut energy costs. Extend machine life.
+            <h1 className="text-title-h2">
+              See how an atom thick graphene can increase your company value
             </h1>
             <p>
-              Simera Trace brings a proven graphene lubricant to your
-              mine—through an on-site fuel savings trial you can measure in
-              weeks, not years.
+              A proven graphene lubricant platform that will save diesel, extend
+              oil life, increase vehicle availability, extend engine life and
+              increase return on asset.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button.Root variant="primary" size="medium" asChild>
@@ -227,7 +224,7 @@ export default function Home() {
                   <RiCheckLine className="size-3 text-static-white" />
                 </div>
                 <p className="text-label-sm text-text-strong-950">
-                  Less wear on haul trucks, loaders, and gensets
+                  Less engine wear across all equipment
                 </p>
               </div>
               <div className="flex items-center gap-3 text-left">
@@ -235,7 +232,7 @@ export default function Home() {
                   <RiCheckLine className="size-3 text-static-white" />
                 </div>
                 <p className="text-label-sm text-text-strong-950">
-                  Validated on your mine in about 30 days
+                  Impact validated within 4-6 weeks
                 </p>
               </div>
             </div>
@@ -293,17 +290,18 @@ export default function Home() {
                 <p className="text-label-sm text-text-sub-600">How it works</p>
               </div>
               <h2 className="text-pretty text-stroke-strong-950 text-title-h4">
-                From first call to proven savings
+                First we prove the savings
               </h2>
             </div>
             <p className="text-label-md text-text-soft-400">
-              We are{" "}
               <span className="text-text-strong-950">
-                pioneers in graphene for mining—the first to bring this
-                technology to Africa.
+                We work with your team
               </span>{" "}
-              Our team comes to your site, runs the trial, and leaves you with
-              clear numbers.
+              to design protocols{" "}
+              <span className="text-text-strong-950">
+                to compare improvements
+              </span>{" "}
+              against your base data.
             </p>
           </div>
 
@@ -312,9 +310,9 @@ export default function Home() {
               <span className="text-text-strong-950">
                 Graphene in one minute:{" "}
               </span>
-              a carbon layer that coats metal inside your engines, cuts
-              friction, moves heat away, and reduces wear—mixed into the oil you
-              already use.
+              a single atom thick carbon layer that coats metal inside your
+              engines, reduces friction, removes heat, and reduces wear. All
+              these benefits without disruption to your operations.
             </p>
           </div>
         </div>
@@ -451,18 +449,18 @@ export default function Home() {
           <div className="flex w-full flex-1 flex-col gap-6 pl-0 md:justify-between md:border-stroke-soft-200 md:border-l md:pl-6">
             <p className="text-paragraph-md text-text-sub-600">
               Diesel powers almost everything that moves at a mine. When
-              friction drops inside your engines, you burn less fuel—and your
+              friction reduces inside your engines, you burn less fuel—and your
               maintenance team spends less time fighting wear on the assets that
               matter most.
               <br />
               <br />
-              Simera Trace combines graphene expertise with an on-site fuel
-              savings trial. We set it up with your people, measure against your
+              Simera Trace combines graphene expertise with an on-site benefits
+              trial. We set it up with your people, measure against your
               baseline, and show what energy and maintenance savings look like
               in your real operating conditions.
               <br />
               <br />
-              Results vary by load, equipment mix, and how you run today. That
+              Results vary by load, equipment mix, and based on your data. That
               is why we validate on your mine—not with generic promises.
             </p>
             <div className="flex flex-col gap-4">
@@ -470,41 +468,42 @@ export default function Home() {
                 Cut energy costs. Protect your fleet.
               </p>
               <Image
-                src="/Simera-Trace-Logo-Black.png"
+                src="/Simera-Trace-Logo-Purple.png"
                 alt="Simera Trace"
-                width={100}
-                height={100}
+                width={180}
+                height={180}
               />
             </div>
           </div>
           <div className="hidden flex-1 flex-col justify-between gap-6 border-stroke-soft-200 border-l pl-6 md:flex">
             <div className="flex flex-col gap-2">
-              <h4 className="text-text-strong-950 text-title-h4">Up to 8%</h4>
+              <h4 className="text-text-strong-950 text-title-h4">
+                Validated 8%-13%
+              </h4>
               <p className="text-label-md text-text-soft-400">
-                Diesel reduction in trial conditions—{" "}
-                <span className="text-text-strong-950">
-                  typically 5–8% once validated on site
-                </span>
+                Diesel reduction in light vehicles—expected 3%-5% savings on
+                heavy equipment.
               </p>
             </div>
             <Divider.Root />
             <div className="flex flex-col gap-2">
               <h4 className="text-text-strong-950 text-title-h4">Less wear</h4>
               <p className="text-label-md text-text-soft-400">
-                Smoother metal surfaces and{" "}
+                The tribochemical action of{" "}
                 <span className="text-text-strong-950">
-                  longer life for engines and drivetrains
+                  graphene reconditions the engine
+                </span>{" "}
+                from the inside and provides{" "}
+                <span className="text-text-strong-950">
+                  longer life for engines and drivetrains.
                 </span>
               </p>
             </div>
             <Divider.Root />
             <div className="flex flex-col gap-2">
-              <h4 className="text-text-strong-950 text-title-h4">~30 days</h4>
+              <h4 className="text-text-strong-950 text-title-h4">4-6 weeks</h4>
               <p className="text-label-md text-text-soft-400">
-                Typical window to{" "}
-                <span className="text-text-strong-950">
-                  validate results on your operation
-                </span>
+                The typical validation period on your operation.
               </p>
             </div>
           </div>
@@ -523,12 +522,10 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-pretty text-label-md text-text-soft-400">
-            Graphene is pure carbon—one atom thick, incredibly strong, and built
-            to slide. In your engines it{" "}
-            <span className="text-text-strong-950">
-              reduces friction where metal meets metal
-            </span>
-            , so you save energy and protect moving parts.
+            Graphene is pure carbon—one atom thick, incredibly strong, with
+            ultralubrication properties. In your engines it reduces friction by
+            50% and wear by 20-70% with Point of Seizure reduced by 30%, so you
+            save energy and protect engines.
           </p>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -552,7 +549,7 @@ export default function Home() {
                 <RiCheckLine className="size-3 text-static-white" />
               </div>
               <p className="text-label-sm text-text-strong-950">
-                A protective layer when oil film is thin
+                A protective layer when oil film disintegrates
               </p>
             </div>
           </div>
@@ -606,6 +603,21 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <div className="relative flex flex-col gap-6 overflow-hidden rounded-20 bg-bg-weak-25 p-7">
+            <RiStackLine className="size-6 text-primary-base" />
+            <RiStackLine className="absolute top-[-64px] right-6 size-[148px] text-text-disabled-300 opacity-35" />
+            <div className="flex flex-col gap-2">
+              <p className="text-label-lg text-text-strong-950">
+                Tribochemical action
+              </p>
+              <p className="text-paragraph-md text-text-sub-600">
+                Graphene platelets pack tightly into crevices, cavities, scraes
+                and asperities inside the engine, and fill them up. This
+                “reconditions” the engine from the inside out to reduce blow by,
+                and lengthen engine life.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <Divider.Root className="py-3" />
@@ -646,7 +658,7 @@ export default function Home() {
                 How long does it take?
               </Accordion.Trigger>
               <Accordion.Content>
-                Most sites validate results in about 30 days. Setup is quick;
+                Most sites validate results in about 4-6 weeks. Setup is quick;
                 your fleet keeps operating while we measure against your
                 baseline.
               </Accordion.Content>
@@ -686,13 +698,9 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <p className="text-text-strong-950 text-title-h3">Up to 8%</p>
-                  <div className="flex flex-col gap-0.5">
-                    <p className="text-label-sm text-text-sub-600">diesel</p>
-                    <p className="text-paragraph-xs text-text-soft-400">
-                      typical range 5–8% after validation
-                    </p>
-                  </div>
+                  <p className="text-balance text-text-strong-950 text-title-h3">
+                    Discover the savings you will achieve
+                  </p>
                 </div>
                 <Button.Root variant="primary" mode="stroke" asChild>
                   <Link href="/contact">Start your trial</Link>
@@ -721,7 +729,7 @@ export default function Home() {
                     <RiCheckLine className="size-3 text-static-white" />
                   </div>
                   <p className="text-label-sm text-text-strong-950">
-                    No capital outlay to start
+                    No capital outlay or disruption to operations
                   </p>
                 </div>
               </div>
@@ -842,6 +850,20 @@ export default function Home() {
                 The technology
               </p>
               <Accordion.Root type="single" collapsible className="space-y-2">
+                <Accordion.Item value="a" className="bg-bg-weak-50 ring-0">
+                  <Accordion.Trigger className="justify-start">
+                    <Accordion.Arrow />
+                    What are the ESG benefits?
+                  </Accordion.Trigger>
+                  <Accordion.Content>
+                    Savings of 27% NOx an expected 55 tons of CO 2 savings
+                    expected per haul truck each year. There is also a reduction
+                    in Particulate Matter (PM) and Unburned Hydrocarbons (HC)
+                    which makes the mine safer. Reduced oil waste and extended
+                    component life.
+                  </Accordion.Content>
+                </Accordion.Item>
+
                 <Accordion.Item value="a" className="bg-bg-weak-50 ring-0">
                   <Accordion.Trigger className="justify-start">
                     <Accordion.Arrow />
@@ -1128,7 +1150,7 @@ export default function Home() {
       <div className="relative mx-auto flex max-w-7xl flex-col gap-10 overflow-hidden px-6 pt-10 pb-6 md:gap-12 md:py-24">
         <div className="flex w-full flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <h4 className="text-text-strong-950 text-title-h2">
-            Ready to cut energy costs at your mine?
+            ESG benefits, download the complete estimate?
           </h4>
           <LinkButton.Root className="w-fit" variant="black" underline asChild>
             <Link href="/contact">

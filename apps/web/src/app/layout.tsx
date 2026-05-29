@@ -34,22 +34,7 @@ export default function RootLayout({
             status="feature"
           >
             <Banner.Content>
-              <Banner.Icon as={RiSparklingLine} />
-              <p className="truncate text-label-xs">
-                <span className="text-text-strong-950">
-                  First in Africa — graphene fuel savings for mining
-                </span>
-                <span className="text-text-soft-400"> · </span>
-                <span className="text-text-sub-600">
-                  On-site trials, typically 5–8% diesel savings
-                </span>
-              </p>
-              <LinkButton.Root underline variant="primary" size="small" asChild>
-                <Link href="/contact">
-                  Start your trial
-                  <LinkButton.Icon as={RiArrowRightUpLongLine} />
-                </Link>
-              </LinkButton.Root>
+              <p className="truncate text-label-xs">Using graphene for improved asset performance and return on assets</p>
             </Banner.Content>
           </Banner.Root>
           <Header />
