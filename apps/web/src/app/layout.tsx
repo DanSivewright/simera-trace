@@ -1,12 +1,10 @@
-import { RiArrowRightUpLongLine, RiSparklingLine } from "@remixicon/react";
 import * as Banner from "@simera-trace/ui/components/banner";
-import * as LinkButton from "@simera-trace/ui/components/link-button";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import Link from "next/link";
 
 import "../index.css";
 import Header from "@/components/header";
+import { PageCanvas } from "@/components/page-canvas";
 import Providers from "@/components/providers";
 
 const inter = FontSans({
@@ -26,19 +24,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} bg-page-canvas antialiased`}>
         <Providers>
-          <Banner.Root
-            className="hidden md:flex"
-            variant="lighter"
-            status="feature"
-          >
-            <Banner.Content>
-              <p className="truncate text-label-xs">Using graphene for improved asset performance and return on assets</p>
-            </Banner.Content>
-          </Banner.Root>
-          <Header />
-          {children}
+          <PageCanvas>
+            <Banner.Root
+              className="hidden md:flex"
+              variant="lighter"
+              status="feature"
+            >
+              <Banner.Content>
+                <p className="truncate text-label-xs">Using graphene for improved asset performance and return on assets</p>
+              </Banner.Content>
+            </Banner.Root>
+            <Header />
+            {children}
+          </PageCanvas>
         </Providers>
       </body>
     </html>

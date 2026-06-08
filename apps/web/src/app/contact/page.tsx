@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 import { ContactForm } from "@/components/forms/contact-form";
+import { PageSection } from "@/components/page-section";
 
 export default function ContactPage() {
   return (
+    <PageSection variant="featured" pattern="dots">
     <main className="mx-auto flex max-w-2xl flex-col gap-10 px-6 py-16">
       <div className="flex flex-col gap-4">
         <p className="text-label-sm text-text-sub-600">Get in touch</p>
@@ -21,9 +23,10 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="rounded-20 border border-stroke-soft-200 p-6">
+      <div className="page-surface rounded-20 p-6">
         <ContactForm />
       </div>
     </main>
+    </PageSection>
   );
 }

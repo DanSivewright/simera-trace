@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 import { AssessmentWizard } from "@/components/forms/assessment-wizard";
+import { PageSection } from "@/components/page-section";
 
 export default function AssessmentPage() {
   return (
+    <PageSection variant="featured" pattern="grid">
     <main className="mx-auto flex max-w-2xl flex-col gap-10 px-6 py-16">
       <div className="flex flex-col gap-4">
         <p className="text-label-sm text-text-sub-600">Free assessment</p>
@@ -27,5 +29,6 @@ export default function AssessmentPage() {
         </Link>
       </p>
     </main>
+    </PageSection>
   );
 }
