@@ -183,10 +183,10 @@ export default function Home() {
                 Pioneering the benefits of graphene in Africa
               </p>
             </div>
-            <h1 className="text-title-h2">
-              See how an atom thick graphene can increase your company value
+            <h1 className="max-w-4xl text-pretty text-title-h2">
+              Discover how graphene can increase your company value
             </h1>
-            <p>
+            <p className="max-w-4xl text-balance">
               A proven graphene lubricant platform that will save diesel, extend
               oil life, increase vehicle availability, extend engine life and
               increase return on asset.
