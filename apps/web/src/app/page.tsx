@@ -30,6 +30,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageSection } from "@/components/page-section";
+import { YouTubeEmbed } from "@/components/youtube-embed";
 
 type AudienceCard = {
   buttonText?: string;
@@ -173,6 +174,30 @@ function AudienceBenefitCard({
     </div>
   );
 }
+
+const insightVideos: {
+  videoId: string;
+  title: string;
+  badges: string[];
+  startSeconds?: number;
+}[] = [
+  {
+    videoId: "0fbQX5VJmew",
+    title: "What is graphene",
+    badges: ["Video", "Graphene"],
+  },
+  {
+    videoId: "caQDxMrn3-k",
+    title: "What happens when adding graphene to oil",
+    badges: ["Video", "Lubrication"],
+    startSeconds: 1,
+  },
+  {
+    videoId: "283T7qWY538",
+    title: "The difference between graphene and other lubricants",
+    badges: ["Video", "Lubrication"],
+  },
+];
 
 export default function Home() {
   return (
@@ -1031,156 +1056,36 @@ export default function Home() {
           </div>
           <div className="no-scrollbar w-screen overflow-scroll">
             <div className="flex w-max items-start gap-5 px-6 md:px-24">
-              <div className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]">
-                <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-pink-500">
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-bg-strong-950/40 text-center backdrop-blur-sm">
-                    <p className="text-label-lg text-static-white">
-                      Coming soon
-                    </p>
+              {insightVideos.map((video) => (
+                <div
+                  key={video.videoId}
+                  className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]"
+                >
+                  <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-bg-weak-50">
+                    <YouTubeEmbed
+                      videoId={video.videoId}
+                      title={video.title}
+                      startSeconds={video.startSeconds}
+                    />
                   </div>
-                  <Image
-                    src="/test.jpg"
-                    fill
-                    alt="test"
-                    className="object-cover"
-                  />
-                </div>
 
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-label-sm text-text-soft-400">
-                      Coming soon
-                    </p>
-                    <p className="text-pretty text-label-lg text-text-strong-950">
-                      What mine FMs should know about diesel burn
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center">
-                    <Badge.Root variant="light">Article</Badge.Root>
-                    <Badge.Root variant="light">Energy</Badge.Root>
-                  </div>
-                </div>
-              </div>
-              <div className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]">
-                <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-pink-500">
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-bg-strong-950/40 text-center backdrop-blur-sm">
-                    <p className="text-label-lg text-static-white">
-                      Coming soon
-                    </p>
-                  </div>
-                  <Image
-                    src="/test.jpg"
-                    fill
-                    alt="test"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-label-sm text-text-soft-400">
-                      Coming soon
-                    </p>
-                    <p className="text-pretty text-label-lg text-text-strong-950">
-                      Graphene lubrication in haul trucks: a plain-English guide
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center">
-                    <Badge.Root variant="light">Guide</Badge.Root>
-                    <Badge.Root variant="light">Maintenance</Badge.Root>
+                  <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-2">
+                      <p className="text-label-sm text-text-soft-400">Video</p>
+                      <p className="text-pretty text-label-lg text-text-strong-950">
+                        {video.title}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1">
+                      {video.badges.map((badge) => (
+                        <Badge.Root key={badge} variant="light">
+                          {badge}
+                        </Badge.Root>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]">
-                <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-pink-500">
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-bg-strong-950/40 text-center backdrop-blur-sm">
-                    <p className="text-label-lg text-static-white">
-                      Coming soon
-                    </p>
-                  </div>
-                  <Image
-                    src="/test.jpg"
-                    fill
-                    alt="test"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-label-sm text-text-soft-400">
-                      Coming soon
-                    </p>
-                    <p className="text-pretty text-label-lg text-text-strong-950">
-                      How to validate fuel savings on site
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center">
-                    <Badge.Root variant="light">Article</Badge.Root>
-                    <Badge.Root variant="light">Trial</Badge.Root>
-                  </div>
-                </div>
-              </div>
-              <div className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]">
-                <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-pink-500">
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-bg-strong-950/40 text-center backdrop-blur-sm">
-                    <p className="text-label-lg text-static-white">
-                      Coming soon
-                    </p>
-                  </div>
-                  <Image
-                    src="/test.jpg"
-                    fill
-                    alt="test"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-label-sm text-text-soft-400">
-                      Coming soon
-                    </p>
-                    <p className="text-pretty text-label-lg text-text-strong-950">
-                      Friction, wear, and why small changes add up at scale
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center">
-                    <Badge.Root variant="light">Article</Badge.Root>
-                    <Badge.Root variant="light">Wear</Badge.Root>
-                  </div>
-                </div>
-              </div>
-              <div className="flex w-[75vw] flex-col gap-4 md:w-[33.33vw]">
-                <div className="relative aspect-video w-full overflow-hidden rounded-20 bg-pink-500">
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-bg-strong-950/40 text-center backdrop-blur-sm">
-                    <p className="text-label-lg text-static-white">
-                      Coming soon
-                    </p>
-                  </div>
-                  <Image
-                    src="/test.jpg"
-                    fill
-                    alt="test"
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-label-sm text-text-soft-400">
-                      Coming soon
-                    </p>
-                    <p className="text-pretty text-label-lg text-text-strong-950">
-                      Energy savings vs fuel savings: what to measure first
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center">
-                    <Badge.Root variant="light">Article</Badge.Root>
-                    <Badge.Root variant="light">Savings</Badge.Root>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -1228,6 +1133,12 @@ export default function Home() {
                 href="/about"
               >
                 About
+              </Link>
+              <Link
+                className="text-label-sm text-text-strong-950"
+                href="/thermal-xr"
+              >
+                Thermal-XR
               </Link>
             </div>
             <div className="flex flex-col gap-3">

@@ -27,6 +27,11 @@ const Header = () => {
                 <Link href="/about">About</Link>
               </Button.Root>
             </li>
+            <li className="list-none">
+              <Button.Root size="small" variant="neutral" mode="ghost" asChild>
+                <Link href="/thermal-xr">Thermal-XR</Link>
+              </Button.Root>
+            </li>
 
             <li className="list-none">
               <Button.Root size="small" variant="neutral" mode="ghost" asChild>
